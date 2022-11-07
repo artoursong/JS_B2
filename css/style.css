@@ -1,0 +1,101 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: "inherit";
+	vertical-align: baseline;
+	font-family:  "Segoe UI", 'Roboto', sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: "Segoe UI", 'Roboto', sans-serif;
+    height: 100vh;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body {
+    max-width: 100%;
+}
+
+.slide-container {
+    width: 748px;
+    margin: 0 auto;
+    margin-top: 200px;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.slide-container .image-slide-container {  
+    position: relative;
+    display: flex;
+    width: 2244px;
+}
+
+.slide-container i {
+    color: rgb(65, 61, 61);
+    z-index: 10;
+    font-size: 50px;
+    cursor: pointer;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-slide-container img {
+    position: relative;
+    width: 100%;
+}
+
+
+.slide-container .prev-button {
+    top: 45%;
+    left: 10px;
+}
+
+.slide-container .next-button {
+    top: 45%;
+    right: 10px;
+}
