@@ -20,6 +20,7 @@ var Slider = {
         Slider.takeImg();
         Slider.renderContainer();
         Slider.buttonEvent();
+        Slider.selectEvent();
     },
 
     takeImg: function() {
@@ -29,6 +30,16 @@ var Slider = {
 
             Slider.GLOBAL.imgArray[i] = imgInfo;
         }
+    },
+
+    selectEvent: function() {
+        $(Slider.SELECTORS.select_button).on("click", function(){
+            let selectIndex = $(this).attr("index");
+            if (Number(selectIndex) > Slider.GLOBAL.index) Slider.goRight(Slider.GLOBAL.index, selectIndex);
+            if (Number(selectIndex) < Slider.GLOBAL.index) Slider.goLeft(Slider.GLOBAL.index, selectIndex);
+        })
+        
+        
     },
 
     buttonEvent: function() {
@@ -44,10 +55,12 @@ var Slider = {
         let renderCount = nextIndex - currentIndex;
         leftChange = Number(renderCount)*748;
         $(Slider.SELECTORS.image_slide_container).animate({left: - Number(leftChange)},700, function() {
+            for (let i = 0; i < renderCount; i++) {
                 $(".image-slide-container img:first-child").appendTo($(Slider.SELECTORS.image_slide_container));
                 $(Slider.SELECTORS.image_slide_container).css("left","");
+            }
         })
-        if (nextIndex >= Number(Slider.GLOBAL.imgCount) - 1) {
+        if (nextIndex >= Number(Slider.GLOBAL.imgCount)) {
             Slider.GLOBAL.index = 0;
         }
         else Slider.GLOBAL.index = nextIndex;
@@ -57,9 +70,15 @@ var Slider = {
         let renderCount = currentIndex - nextIndex;
         leftChange = Number(renderCount)*748;
         $(Slider.SELECTORS.image_slide_container).animate({left: + Number(leftChange)},700, function() {
+            for (let i = 0; i < renderCount; i++) {
                 $(".image-slide-container img:last-child").prependTo($(Slider.SELECTORS.image_slide_container));
                 $(Slider.SELECTORS.image_slide_container).css("left","");
+            }
         })
+        if (nextIndex < 0) {
+            Slider.GLOBAL.index = Number(Slider.GLOBAL.imgCount)-1;
+        }
+        else Slider.GLOBAL.index = nextIndex;
     },
 
     renderContainer: function () {
