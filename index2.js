@@ -44,10 +44,8 @@ var Slider = {
         let renderCount = nextIndex - currentIndex;
         leftChange = Number(renderCount)*748;
         $(Slider.SELECTORS.image_slide_container).animate({left: - Number(leftChange)},700, function() {
-            if (nextIndex >= Number(Slider.GLOBAL.imgCount) - 1) {
                 $(".image-slide-container img:first-child").appendTo($(Slider.SELECTORS.image_slide_container));
-            }
-            
+                $(Slider.SELECTORS.image_slide_container).css("left","");
         })
         if (nextIndex >= Number(Slider.GLOBAL.imgCount) - 1) {
             Slider.GLOBAL.index = 0;
@@ -59,7 +57,8 @@ var Slider = {
         let renderCount = currentIndex - nextIndex;
         leftChange = Number(renderCount)*748;
         $(Slider.SELECTORS.image_slide_container).animate({left: + Number(leftChange)},700, function() {
-            if (nextIndex <= 0) $(Slider.SELECTORS.image_slide_container).prependTo($(Slider.SELECTORS.image_slide_container))
+                $(".image-slide-container img:last-child").prependTo($(Slider.SELECTORS.image_slide_container));
+                $(Slider.SELECTORS.image_slide_container).css("left","");
         })
     },
 
