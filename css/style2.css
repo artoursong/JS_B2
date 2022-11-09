@@ -67,7 +67,7 @@ body {
 .slide-container .image-slide-container {  
     position: relative;
     display: flex;
-    width: 2244px;
+
 }
 
 .slide-container i {
@@ -119,3 +119,4 @@ body {
 .select-button.active {
     background-color: white;
 }
+

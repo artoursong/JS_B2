@@ -59,7 +59,7 @@ body {
     margin: 0 auto;
     margin-top: 200px;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: brown;
     
 }
